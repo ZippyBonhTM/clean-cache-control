@@ -1,17 +1,6 @@
-import { describe, expect, test } from '@jest/globals';
+import { LocalSavePurchases } from '@/data/usecases/save-purchases/local-save-purchases';
+import { CacheStore } from '@/data/protocols/cache/cache-store';
 // sut = Sistem Under Test
-
-class LocalSavePurchases {
-  constructor(private readonly cacheStore: CacheStore) { }
-
-  async save(): Promise<void> {
-    this.cacheStore.delete('purchases');
-  }
-}
-
-interface CacheStore {
-  delete: (key: string) => void;
-}
 
 class CacheStoreSpy implements CacheStore {
   deleteCallsCount = 0;
