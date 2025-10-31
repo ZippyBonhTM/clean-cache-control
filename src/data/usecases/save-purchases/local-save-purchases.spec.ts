@@ -1,6 +1,6 @@
 import { LocalSavePurchases } from '@/data/usecases/save-purchases/local-save-purchases';
 import { CacheStore } from '@/data/protocols/cache/cache-store';
-import { SavePurchases } from '@/domain';
+import { SavePurchases } from '@/domain/usecases';
 // sut = Sistem Under Test
 
 class CacheStoreSpy implements CacheStore {
