@@ -1,6 +1,7 @@
 import { LocalSavePurchases } from '@/data/usecases/save-purchases/local-save-purchases';
 import { CacheStore } from '@/data/protocols/cache/cache-store';
 import { SavePurchases } from '@/domain/usecases';
+import { mockPurchases } from '@/data/tests';
 // sut = Sistem Under Test
 
 class CacheStoreSpy implements CacheStore {
@@ -40,17 +41,6 @@ const makeSut = (): SutTypes => {
   const sut = new LocalSavePurchases(cacheStore);
   return { cacheStore, sut };
 };
-
-const mockPurchases = (): Array<SavePurchases.Params> => [{
-  id: '1',
-  date: new Date(),
-  value: 50
-},
-{
-  id: '2',
-  date: new Date(),
-  value: 70
-}];
 
 describe('LocalSavePurchases', () => {
   test('Shold not delete cache on sut.init', () => {
